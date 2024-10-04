@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가격 분석 1 - 알타리</title>
+    <style>
+        img {
+            width: 350px;
+        }
+        .img1 {
+            width: 700px;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://cdn.pixabay.com/photo/2016/11/21/17/29/agriculture-1846649_1280.jpg'); /* 농업 배경 이미지 */
+            background-color: rgba(255, 255, 255, 0.3); /* 배경 위에 반투명 흰색 추가 */
+            background-blend-mode: overlay; /* 이미지와 색상을 혼합 */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        .top-banner {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.5); /* 투명도 적용 */
+            padding: 10px;
+            text-align: right;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px); /* 배경 블러 효과 추가 */
+        }
+
+        nav {
+            position: fixed;
+            top: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+           /* background-color: rgba(255, 255, 255, 0.5); 투명도 적용 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);*/
+            z-index: 999;
+            /* backdrop-filter: blur(5px); 배경 블러 효과 추가 */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav li {
+            margin: 0 20px;
+        }
+        nav button {
+            border: 1px solid rgba(255, 255, 255, 0.7); /* 투명한 테두리 */
+            background: rgba(70, 130, 180, 0.8); /* 청록색 배경 */
+            color: #ffffff;
+            cursor: pointer;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .sub-nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .sub-nav button {
+            border: 1px solid #ddd;
+            background: #f7f7f7;
+            margin: 0 10px;
+            cursor: pointer;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+        .sub-nav button:hover {
+            background: #e7e7e7;
+        }
+        main {
+            padding-top: 100px;
+            margin: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        .chart-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            width: 60%;
+            margin: 20px auto;
+            background-color: #f9f9f9;
+        }
+        .scrollable-container {
+            display: flex;
+        }
+        .image-description {
+            display: inline-block;
+            text-align: center;
+            margin-right: 20px;
+        }
+        .description {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            width: 60%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-banner">이 홈페이지는 KOSMO서초 2기 비공식 자료집입니다.</div>
+    <nav>
+        <ul>
+            <li><button type="button" onclick="navigateTo('index.html')">알타리</button></li>
+            <li><button type="button" onclick="navigateTo('team.html')">팀 소개</button></li>
+            <li><button type="button" onclick="navigateTo('climate0.html')">기후 분석</button></li>
+            <li><button type="button" onclick="navigateTo('price1.html')">농산 가격 분석</button></li>
+            <li><button type="button" onclick="navigateTo('eatout1.html')">식문화 분석</button></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1 style="text-align: center;">고추 가격 분석</h1>
+        
+        <!-- 주제별 네비게이션 바 (가격 분석 1, 2, 3, 4) -->
+        <div class="sub-nav">
+            <button type="button" onclick="navigateTo('price1.html')">배추 가격 분석</button>
+            <button type="button" onclick="navigateTo('price2.html')">무 가격 분석</button>
+            <button type="button" onclick="navigateTo('price3.html')">고추 가격 분석</button>
+        </div>
+
+        <!-- 첫 번째 이미지 섹션 -->
+        <div class="section chart-container">
+            <div class="scrollable-container">
+                <div class="image-description">
+                    <img src="https://github.com/leewj12/AlterRe/blob/main/2019%E1%84%82%E1%85%A7%E1%86%AB1%E1%84%8B%E1%85%AF%E1%86%AF2024%E1%84%82%E1%85%A7%E1%86%AB8%E1%84%8B%E1%85%AF%E1%86%AF%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%83%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%89%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" class="img1">
+                    <p>2019년~2024년 고추 출하가, 도매가, 소매가 비교</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 두 번째 이미지 섹션 -->
+        <div class="section chart-container">
+            <div class="scrollable-container">
+                <div class="image-description">
+                    <img src="https://github.com/leewj12/AlterRe/blob/main/2019%E1%84%82%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%83%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%89%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" alt="">
+                    <p>2019년 고추 출하가, 도매가, 소매가 비교</p>
+                </div>
+                <div class="image-description">
+                    <img src="https://github.com/leewj12/AlterRe/blob/main/2020%E1%84%82%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%83%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%89%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" alt="">
+                    <p>2020년 고추 출하가, 도매가, 소매가 비교</p>
+                </div>
+                <div class="image-description">
+                    <img src="https://github.com/leewj12/AlterRe/blob/main/2021%E1%84%82%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%83%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%89%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" alt="">
+                    <p>2021년 고추 출하가, 도매가, 소매가 비교</p>
+                </div>
+                <div class="image-description">
+                    <img src="https://github.com/leewj12/AlterRe/blob/main/2022%E1%84%82%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%83%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%89%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" alt="">
+                    <p>2022년 고추 출하가, 도매가, 소매가 비교</p>
+                </div>
+                <div class="image-description">
+                    <img src="https://github.com/leewj12/AlterRe/blob/main/2023%E1%84%82%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%83%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%89%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" alt="">
+                    <p>2023년 고추 출하가, 도매가, 소매가 비교</p>
+                </div>
+                <div class="image-description">
+                    <img src="https://github.com/leewj12/AlterRe/blob/main/2024%E1%84%82%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%83%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%89%E1%85%A9%E1%84%86%E1%85%A2%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" alt="">
+                    <p>2024년 고추 출하가, 도매가, 소매가 비교</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 세 번째 이미지 섹션 -->
+        <div class="section chart-container">
+            <div class="scrollable-container">
+                <div class="image-description">
+                    <img src="https://github.com/leewj12/AlterRe/blob/main/2019%E1%84%82%E1%85%A7%E1%86%AB1%E1%84%8B%E1%85%AF%E1%86%AF2024%E1%84%82%E1%85%A7%E1%86%AB8%E1%84%8B%E1%85%AF%E1%86%AF%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%85%E1%85%A3%E1%86%BC%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" class="img1">
+                    <p>2019년~2024년 고추 출하량, 출하가 비교</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 네 번째 이미지 섹션 -->
+        <div class="section chart-container">
+            <div class="scrollable-container">
+                <div class="image-description">
+                <img src="https://github.com/leewj12/AlterRe/blob/main/2019%E1%84%82%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%85%E1%85%A3%E1%86%BC%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" alt="">
+                <p>2019년 고추 출하량, 출하가 비교</p>
+                </div>
+                <div class="image-description">
+                <img src="https://github.com/leewj12/AlterRe/blob/main/2020%E1%84%82%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%85%E1%85%A3%E1%86%BC%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" alt="">
+                <p>2020년 고추 출하량, 출하가 비교</p>
+                </div>
+                <div class="image-description">
+                <img src="https://github.com/leewj12/AlterRe/blob/main/2021%E1%84%82%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%85%E1%85%A3%E1%86%BC%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" alt="">
+                <p>2021년 고추 출하량, 출하가 비교</p>
+                </div>
+                <div class="image-description">
+                <img src="https://github.com/leewj12/AlterRe/blob/main/2022%E1%84%82%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%85%E1%85%A3%E1%86%BC%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" alt="">
+                <p>2022년 고추 출하량, 출하가 비교</p>
+                </div>
+                <div class="image-description">
+                <img src="https://github.com/leewj12/AlterRe/blob/main/2023%E1%84%82%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%85%E1%85%A3%E1%86%BC%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" alt="">
+                <p>2023년 고추 출하량, 출하가 비교</p>
+                </div>
+                <div class="image-description">
+                <img src="https://github.com/leewj12/AlterRe/blob/main/2024%E1%84%82%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%85%E1%85%A3%E1%86%BC%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png?raw=true" alt="">
+                <p>2024년 고추 출하량, 출하가 비교</p>
+            </div>
+            </div>
+        </div>
+
+        <!-- 설명 섹션 -->
+        <div class="section description">
+            <h2>선형 회귀</h2>
+            <div class="scrollable-container">
+                    <img src="https://github.com/leewj12/AlterRe/blob/main/%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A8%E1%84%8B%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%A8vs%E1%84%89%E1%85%B5%E1%86%AF%E1%84%8C%E1%85%A6%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%80%E1%85%A1%E1%84%80%E1%85%A7%E1%86%A820232024.png?raw=true" alt="">
+                    <img src="https://github.com/leewj12/AlterRe/blob/main/%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%85%E1%85%A3%E1%86%BC%E1%84%8B%E1%85%A8%E1%84%8E%E1%85%B3%E1%86%A8vs%E1%84%89%E1%85%B5%E1%86%AF%E1%84%8C%E1%85%A6%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%85%E1%85%A3%E1%86%BC20232024.png?raw=true" alt="">
+                </div>
+                <div class="scrollable-container">
+                    <img src="https://github.com/leewj12/AlterRe/blob/main/%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%85%E1%85%A3%E1%86%BC%E1%84%8B%E1%85%A8%E1%84%89%E1%85%A1%E1%86%BC.png?raw=true" alt="">
+                    <img src="https://github.com/leewj12/AlterRe/blob/main/%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%8B%E1%85%A8%E1%84%89%E1%85%A1%E1%86%BC.png?raw=true" alt="">
+                </div>
+                    <img src="https://github.com/leewj12/AlterRe/blob/main/%E1%84%80%E1%85%A9%E1%84%8E%E1%85%AE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%85%E1%85%A3%E1%86%BC%E1%84%86%E1%85%B5%E1%86%BE%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%92%E1%85%A1%E1%84%80%E1%85%A1%E1%84%8B%E1%85%A8%E1%84%89%E1%85%A1%E1%86%BC.png?raw=true" class="img1">
+                    <p>고추 출하량 및 출하가 예상</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 알타리 팀 - 고추 가격 분석</p>
+    </footer>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
