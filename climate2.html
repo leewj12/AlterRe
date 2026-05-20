@@ -3,171 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>기후 분석 1 - 알타리</title>
-    <style>
-        h1{text-align: center;}
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('https://cdn.pixabay.com/photo/2016/11/21/17/29/agriculture-1846649_1280.jpg'); /* 농업 배경 이미지 */
-            background-color: rgba(255, 255, 255, 0.3); /* 배경 위에 반투명 흰색 추가 */
-            background-blend-mode: overlay; /* 이미지와 색상을 혼합 */
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-        }
-        .top-banner {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.5); /* 투명도 적용 */
-            padding: 10px;
-            text-align: right;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(5px); /* 배경 블러 효과 추가 */
-        }
-
-        nav {
-            position: fixed;
-            top: 50px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-           /* background-color: rgba(255, 255, 255, 0.5); 투명도 적용 
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);*/
-            z-index: 999;
-            /* backdrop-filter: blur(5px); 배경 블러 효과 추가 */
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-        }
-        nav li {
-            margin: 0 20px;
-        }
-        nav button {
-            border: 1px solid rgba(255, 255, 255, 0.7); /* 투명한 테두리 */
-            background: rgba(70, 130, 180, 0.8); /* 청록색 배경 */
-            color: #ffffff;
-            cursor: pointer;
-            padding: 10px 20px;
-            text-align: center;
-            font-size: 16px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .sub-nav {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        .sub-nav button {
-            border: 1px solid #ddd;
-            background: #f7f7f7;
-            margin: 0 10px;
-            cursor: pointer;
-            padding: 8px 12px;
-            font-size: 14px;
-        }
-        .sub-nav button:hover {
-            background: #e7e7e7;
-        }
-        main {
-            padding-top: 100px;
-            margin: 20px;
-        }
-        .section {
-            margin-bottom: 30px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            box-sizing: border-box;
-        }
-        .map-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 30px;
-            border: 0;
-        }
-        .map-frame {
-            width: 60%; /* 가로 크기를 80%로 줄임 */
-            min-height: 600px; /* 세로 크기를 600px로 증가 */
-            border: none;
-        }
-        .chart-container {
-            width: 100%;
-            background-color: #eee;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .description {
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            box-sizing: border-box;
-            margin: 20px auto;
-            width: 60%;
-        }
-    </style>
+    <title>기후 분석 - 무 - 알타리</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="top-banner">이 홈페이지는 KOSMO서초 2기 비공식 자료집입니다.</div>
-    <nav>
-        <ul>
-            <li><button type="button" onclick="navigateTo('index.html')">알타리</button></li>
-            <li><button type="button" onclick="navigateTo('team.html')">팀 소개</button></li>
-            <li><button type="button" onclick="navigateTo('climate0.html')">기후 분석</button></li>
-            <li><button type="button" onclick="navigateTo('price1.html')">농산 가격 분석</button></li>
-            <li><button type="button" onclick="navigateTo('eatout1.html')">식문화 분석</button></li>
+    <nav class="navbar">
+        <a class="navbar-brand" onclick="navigateTo('index.html')">알타리<span>.</span></a>
+        <ul class="navbar-menu" id="navMenu">
+            <li><a href="team.html">팀 소개</a></li>
+            <li><a href="climate0.html" class="active">기후 분석</a></li>
+            <li><a href="price1.html">가격 분석</a></li>
+            <li><a href="eatout1.html">식문화 분석</a></li>
         </ul>
+        <button class="nav-toggle" onclick="toggleNav()">
+            <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
     </nav>
 
-    <main>
+    <header class="page-header">
         <h1>무 생산지 기후 분석</h1>
-        
-        <!-- 주제별 네비게이션 바 (배추, 무, 고추) -->
-        <div class="sub-nav">
-            <button type="button" onclick="navigateTo('climate0.html')">전국 지도</button>
-            <button type="button" onclick="navigateTo('climate1.html')">배추</button>
-            <button type="button" onclick="navigateTo('climate2.html')">무</button>
-            <button type="button" onclick="navigateTo('climate3.html')">고추</button>
-        </div>
+        <p>주요 무 재배 지역의 기후 변화를 분석합니다.</p>
+    </header>
 
-        <!-- 지도 섹션 -->
-        <div class="section map-container">
-            <!-- <h2>무 생산지</h2><br> -->
-            <iframe class="map-frame" src="radish_production_map.html"></iframe>
-        </div>
+    <div class="tabs">
+        <a class="tab" href="climate0.html">전국 지도</a>
+        <a class="tab" href="climate1.html">배추</a>
+        <a class="tab active" href="climate2.html">무</a>
+        <a class="tab" href="climate3.html">고추</a>
+    </div>
 
-        <!-- 설명 섹션 -->
-        <div class="section description">
-            <h2>기후 변화 요약</h2>
-            <p>이 섹션에는 기후 변화와 관련된 요약 및 분석 결과를 설명할 수 있습니다.</p>
-            <!-- 이미지 추가 -->
-            <img src="assets/images/무재배지각군연평균기온비교.png" alt="기후 변화 그래프" style="width:100%; max-width:600px; margin-top:20px;">
-            <p>고창과 부안은 2021년에 연평균 기온 차이가 거의 없음을 보여주고, 부안과 서산은 비슷한 기후 변화를 보여줍니다.</p>
-            <img src="assets/images/무재배지각군7월12월평균기온비교.png" alt="기후 변화 그래프" style="width:100%; max-width:600px; margin-top:20px;">
-            <p>무 수확시기인 7월부터 12월까지 고창과 부안의 기온이 유사한 양상을 보였습니다.</p>
-            <p>각 지역 간 기온 차이는 존재하지만, 전반적으로 비슷한 패턴의 기온 변화를 확인할 수 있었습니다.</p>
-        </div>
+    <main>
+        <div class="container">
+            <div class="map-wrap">
+                <iframe src="radish_production_map.html"></iframe>
+            </div>
 
+            <div class="card">
+                <span class="section-label">기후 분석</span>
+                <h2>재배지 연평균 기온 비교</h2>
+                <img src="assets/images/무재배지각군연평균기온비교.png" alt="무 재배지 연평균 기온 비교" class="chart-img">
+                <p>고창과 부안은 2021년 기준 연평균 기온 차이가 거의 없었으며, 부안과 서산은 전체 기간에 걸쳐 유사한 기온 변화를 보였습니다.</p>
+            </div>
+
+            <div class="card">
+                <span class="section-label">수확기 기온</span>
+                <h2>7월~12월 평균 기온 비교</h2>
+                <img src="assets/images/무재배지각군7월12월평균기온비교.png" alt="무 재배지 7~12월 평균 기온 비교" class="chart-img">
+                <p>무 수확 시기(7~12월) 동안 고창과 부안의 기온이 가장 유사한 양상을 보였습니다. 지역 간 절대적인 기온 차이는 있지만, 전반적으로 비슷한 변화 패턴을 확인할 수 있었습니다.</p>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <p>© 2024 알타리 팀 - 무 생산지 기후 분석</p>
+        <p>&copy; 2024 알타리 팀 &middot; 기후와 농산물 데이터 시각화 프로젝트</p>
     </footer>
 
     <script>
-        function navigateTo(page) {
-            window.location.href = page;
-        }
+        function navigateTo(page) { window.location.href = page; }
+        function toggleNav() { document.getElementById('navMenu').classList.toggle('open'); }
     </script>
 </body>
 </html>
