@@ -337,6 +337,7 @@ img {
     padding: clamp(20px, 3vw, 36px);
     margin-bottom: 24px;
     transition: box-shadow var(--transition);
+    overflow: hidden;
 }
 
 .card:hover {
@@ -427,6 +428,7 @@ img {
     border-radius: var(--radius-sm);
     box-shadow: var(--shadow-xs);
     margin: 16px 0;
+    width: 100%;
     max-width: 600px;
 }
 
