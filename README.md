@@ -26,6 +26,7 @@ AlterRe/
 ├── climate0~3.html             # 기후 분석
 ├── price1~3.html               # 농산 가격 분석
 ├── eatout1.html                # 식문화 분석
+├── styles.css                  # 공통 스타일 (반응형 포함)
 ├── *_production_map.html       # 지역별 생산지도 (지도 시각화)
 ├── assets/
 │   └── images/                 # 차트 및 팀원 사진
